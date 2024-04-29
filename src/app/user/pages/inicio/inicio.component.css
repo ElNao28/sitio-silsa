@@ -1,0 +1,14 @@
+.slider{
+  height: 550px;
+}
+@media (max-width: 768px){
+  .slider{
+    height: 300px;
+   }
+}
+.container-silsa{
+  transition: 0.5s;
+}
+.container-silsa:hover{
+  background-color: rgb(212, 212, 212);
+}
