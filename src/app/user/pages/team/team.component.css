@@ -1,0 +1,6 @@
+.container-team{
+  transition: 0.5s;
+}
+.container-team:hover{
+  scale: 1.05;
+}

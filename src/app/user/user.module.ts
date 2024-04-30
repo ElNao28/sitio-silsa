@@ -10,6 +10,8 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { ConocenosComponent } from './pages/conocenos/conocenos.component';
+import { TeamComponent } from './pages/team/team.component';
+import { AgendarCitaComponent } from './pages/agendar-cita/agendar-cita.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ConocenosComponent } from './pages/conocenos/conocenos.component';
     NoticiasComponent,
     ServiciosComponent,
     ContactoComponent,
-    ConocenosComponent
+    ConocenosComponent,
+    TeamComponent,
+    AgendarCitaComponent
   ],
   imports: [
     CommonModule,

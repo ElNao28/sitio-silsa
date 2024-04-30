@@ -7,6 +7,8 @@ import { DCEComponent } from './pages/dce/dce.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { TeamComponent } from './pages/team/team.component';
+import { AgendarCitaComponent } from './pages/agendar-cita/agendar-cita.component';
 
 
 const routes: Routes = [
@@ -39,10 +41,19 @@ const routes: Routes = [
         component:ContactoComponent
       },
       {
+        path:'silsa-team',
+        component:TeamComponent
+      },
+      {
+        path:'agendar-cita',
+        component:AgendarCitaComponent
+      },
+      {
         path:'',
         redirectTo:'inicio',
         pathMatch:'full'
-      }
+      },
+
     ]
   }
 ];

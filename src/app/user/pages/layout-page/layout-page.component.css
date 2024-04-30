@@ -1,0 +1,12 @@
+.active{
+  animation-name: prueba;
+  animation-duration: 0.5s;
+}
+@keyframes prueba{
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}

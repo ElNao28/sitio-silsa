@@ -1,26 +1,56 @@
-<nav class="bg-white flex flex-col lg:flex-row md:justify-between md:px-20 items-center py-1 shadow-md">
+<nav
+  class="bg-white flex flex-col lg:flex-row md:justify-between md:px-20 items-center py-1 shadow-md sticky top-0 z-10 w-full">
   <div class="flex items-center gap-2 text-3xl font-serif cursor-pointer" routerLink="inicio">
     <img src="../../../../assets/img/logoSil.png" alt="logo_silsa" class="w-16 rounded-sm">
     <p><i class="text-blue-900">Silsa</i><i class="text-red-800">Consultores</i></p>
   </div>
-  <div>
-    <ul class="flex gap-5 text-blue-800 text-xl font-semibold">
-      <li class="hover:bg-red-800 hover:text-white p-2 rounded-md"><a routerLink="/conocenos">Conocenos</a></li>
-      <li class="hover:bg-red-800 hover:text-white p-2 rounded-md"><a routerLink="/dce">DCE</a></li>
-      <li class="hover:bg-red-800 hover:text-white p-2 rounded-md"><a routerLink="/servicios">Servicios</a></li>
-      <li class="hover:bg-red-800 hover:text-white p-2 rounded-md"><a routerLink="/noticias">Noticias</a></li>
-      <li class="hover:bg-red-800 hover:text-white p-2 rounded-md"><a routerLink="/contacto">Contacto</a></li>
-
+  <div class="">
+    <ul class="flex gap-5 text-blue-900">
+      <div class="flex items-center gap-1" (click)="activateMenuVar(0)">
+        <li class="hover:text-red-700 cursor-pointer" >Conocenos
+        </li>
+        <i class="pi pi-angle-down text-red-700"></i>
+      </div>
+      <div class="flex items-center gap-1" (click)="activateMenuVar(1)">
+        <li class="hover:text-red-700 cursor-pointer" >Servicios
+        </li>
+        <i class="pi pi-angle-down text-red-700"></i>
+      </div>
+      <li class="hover:text-red-700 cursor-pointer">Noticias</li>
+      <li class="hover:text-red-700 cursor-pointer" routerLink="/contacto">Contacto</li>
     </ul>
   </div>
 </nav>
+
+
+
+<div class="fixed bg-white rounded-md z-10 mx-20 w-full flex rounded-b-md" *ngIf="varMenu" (mouseleave)="deactivateMenuVar()" [ngClass]="{active:varMenu}">
+  <ul class="bg-gray-200 w-2/6 px-10 py-5 flex flex-col gap-5 font-medium text-sm">
+    <h2 class="font-bold text-xl">{{dataMenuVar.title}}</h2>
+    <div class="flex justify-between items-center cursor-pointer hover:text-blue-700"
+      *ngFor="let item of dataMenuVar.subTitle" (mouseover)="showSubMenu(item.title)" routerLink="{{item.url}}" (click)="activateMenuVar(0)">
+      <li>{{item.title}}</li>
+      <i class="pi pi-chevron-right"></i>
+    </div>
+  </ul>
+  <div class="w-4/6 p-4">
+    <h3 class="font-semibold mb-3">{{dataSubMenu.title}}</h3>
+    <p class="pr-20 font-serif text-gray-500">{{dataSubMenu.content}} Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Quos numquam impedit sunt cum iure aspernatur vel tenetur? Beatae voluptatem soluta itaque
+      dolorum consequatur? Voluptates, odit laudantium! Adipisci nisi deserunt laborum.</p>
+  </div>
+</div>
+
+
+
 
 <router-outlet></router-outlet>
 <footer class="mt-10">
   <div class="bg-blue-900 text-white py-4 flex justify-center gap-20 text-center">
     <div class="w-1/3">
       <h2 class="text-2xl">Silsa consultores</h2>
-      <p class="text-sm">Conoce nuestros servicios y nuestros casos de exito, ademas de como iniciar con nostros tu empresa</p>
+      <p class="text-sm">Conoce nuestros servicios y nuestros casos de exito, ademas de como iniciar con nostros tu
+        empresa</p>
     </div>
     <div>
       <h2 class="text-2xl">Siguenos</h2>
