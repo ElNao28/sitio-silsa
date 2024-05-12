@@ -1,3 +1,4 @@
+<!-- Este contenedor contiene el slider/carrucel de imagenes -->
 <div class="card">
   <p-carousel [value]="imagenes" [numVisible]="1" [numScroll]="1" [circular]="true">
     <ng-template let-imagen pTemplate="item">
@@ -9,6 +10,7 @@
     </ng-template>
   </p-carousel>
 </div>
+<!-- Este contenedor contiene la mision, vison, etc -->
 <div class="py-5">
   <div class="grid md:grid-cols-2 gap-8 mx-14">
 
@@ -68,7 +70,9 @@
     <img src="../../../../assets/img/Mapa.png" alt="mapa_silsa">
   </div>
 </div>
+<!-- aqui termina el contenedort de mision, vision etc -->
 
+<!-- Este contenedor contiene el slider/carrucel de imagenes de las noticias -->
 <div class="card">
   <h2 class="text-center font-bold text-3xl">- Noticias recientes -</h2>
   <p-carousel [value]="imagenes" [numVisible]="3" [numScroll]="1" [circular]="true">

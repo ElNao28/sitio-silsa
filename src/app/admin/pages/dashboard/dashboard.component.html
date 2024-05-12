@@ -1,0 +1,47 @@
+<div class="flex h-screen bg-gray-200">
+
+  <div class="bg-blue-950 p-4 w-1/5 py-10 flex flex-col justify-between" *ngIf="showMenu">
+    <div>
+      <div class="flex items-center flex-col gap-3">
+        <img src="../../../../assets/img/usuario.jpg" alt="user" class="img-user h-40 ring-2 ring-white shadow-2xl">
+        <p class="text-white text-md uppercase font-bold">Jose campos hervert</p>
+      </div>
+      <div class="text-white flex flex-col gap-10 mt-10 font-serif text-lg
+      ">
+        <p class="item-menu border-b-2 border-l-2 pl-2 cursor-pointer hover:text-gray-300 hover:border-gray-300 flex items-center gap-2"
+          routerLink="citas"> <i class="pi pi-clipboard"></i>Citas</p>
+          <p class="item-menu border-b-2 border-l-2 pl-2 cursor-pointer hover:text-gray-300 hover:border-gray-300 flex items-center gap-2"
+          routerLink="administrar-citas"> <i class="pi pi-calendar-plus"></i>Administrar citas</p>
+        <p class="item-menu border-b-2 border-l-2 pl-2 cursor-pointer  hover:text-gray-300 hover:border-gray-300 flex items-center gap-2"
+          routerLink="noticias"><i class="pi pi-globe"></i>Noticias</p>
+        <p class="item-menu border-b-2 border-l-2 pl-2 cursor-pointer  hover:text-gray-300 hover:border-gray-300 flex items-center gap-2"
+          routerLink="perfil"><i class="pi pi-user"></i>Perfil</p>
+        <p class="item-menu border-b-2 border-l-2 pl-2 cursor-pointer  hover:text-gray-300 hover:border-gray-300 flex items-center gap-2"
+          routerLink="add-user"><i class="pi pi-users"></i>Administradores</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="h-screen overflow-auto" [ngClass]="{'w-4/5':showMenu,'w-full':!showMenu}">
+    <nav class="bg-white py-4 px-5 w-full flex items-center shadow-md sticky top-0 z-10 justify-between">
+      <div class="flex gap-3 items-center">
+        <div class="flex gap-1 flex-col w-8 cursor-pointer" (click)="changeMenu()">
+          <div class="p-0.5 bg-gray-800 rounded-md"></div>
+          <div class="p-0.5 bg-gray-800 rounded-md"></div>
+          <div class="p-0.5 bg-gray-800 rounded-md"></div>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800">Dashboard Silsa</h3>
+      </div>
+      <div>
+        <i class="pi pi-sign-out text-red-600 text-xl font-bold cursor-pointer" routerLink="/admin/login"></i>
+      </div>
+    </nav>
+    <div class="mx-2 mt-2 p-3 rounded-md h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,3 +1,4 @@
+<!-- Esta es la barra de navegacion -->
 <nav
   class="bg-white flex flex-col lg:flex-row md:justify-between md:px-20 items-center py-1 shadow-md sticky top-0 z-10 w-full">
   <div class="flex items-center gap-2 text-3xl font-serif cursor-pointer" routerLink="inicio">
@@ -23,7 +24,7 @@
 </nav>
 
 
-
+<!-- Estes es el contendor que engloba el menu desplegable -->
 <div class="fixed bg-white rounded-md z-10 mx-20 w-full flex rounded-b-md" *ngIf="varMenu" (mouseleave)="deactivateMenuVar()" [ngClass]="{active:varMenu}">
   <ul class="bg-gray-200 w-2/6 px-10 py-5 flex flex-col gap-5 font-medium text-sm">
     <h2 class="font-bold text-xl">{{dataMenuVar.title}}</h2>
@@ -43,8 +44,13 @@
 
 
 
+<!-- Aqui se cargan los componentes dependiendo la ruta en la que se encuentre el usuario -->
+<router-outlet>
 
-<router-outlet></router-outlet>
+</router-outlet>
+
+
+
 <footer class="mt-10">
   <div class="bg-blue-900 text-white py-4 flex justify-center gap-20 text-center">
     <div class="w-1/3">

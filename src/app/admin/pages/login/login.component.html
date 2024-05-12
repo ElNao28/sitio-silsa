@@ -1,0 +1,24 @@
+<img src="../../../../assets/img/banner.png" alt="">
+
+  <div class="flex justify-center my-5">
+    <form class="p-10 rounded-md shadow-xl flex flex-col gap-3">
+      <h3 class="text-2xl font-bold">Login silsa</h3>
+      <div class="flex flex-col">
+        <label for="name">Ingrese su correo</label>
+        <input type="email" class="rounded-md">
+      </div>
+      <div class="flex flex-col">
+        <label for="name">Ingrese su contraseña</label>
+        <input type="password" class="rounded-md">
+      </div>
+      <div>
+        <re-captcha
+        [siteKey]="keyCapcha"
+        ></re-captcha>
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="text-blue-500 hover:text-blue-700">Recuperar contraseña</button>
+        <button class="bg-blue-500 px-3 py-2 rounded-md hover:bg-blue-700 text-white">Ingresar</button>
+      </div>
+    </form>
+  </div>

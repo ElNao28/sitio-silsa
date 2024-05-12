@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ConfirmarCitaComponent } from './pages/confirmar-cita/confirmar-cita.component';
-
+//Este modulo sirve para declarar todos los componentes del lado usuario
 @NgModule({
   declarations: [
     InicioComponent,

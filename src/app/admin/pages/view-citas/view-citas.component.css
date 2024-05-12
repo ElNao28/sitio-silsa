@@ -1,0 +1,7 @@
+.cita{
+  transition-duration: 0.5s;
+}
+
+.cita:hover{
+  transform: scale(1.02);
+}

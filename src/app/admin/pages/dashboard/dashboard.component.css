@@ -1,0 +1,9 @@
+.img-user{
+  border-radius: 100%;
+}
+.item-menu{
+  transition-duration: 0.5s;
+}
+.item-menu:hover{
+  transform: scale(1.08);
+}

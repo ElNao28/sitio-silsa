@@ -7,18 +7,23 @@ import { MenuVar } from '../../interfaces/MenuVar.interface';
   styleUrl: './layout-page.component.css'
 })
 export class LayoutPageComponent {
+  //se encarga de mostrar o ocultar el menudesplegable
   varMenu: boolean = false;
+  //esta variable contiene los datos que se van a mostrar en el menu desplegable
   dataMenuVar: MenuVar = {
     title:'',
     subTitle:[]
   }
+  //esta variable contiene los datos que se van a mostrar en el submenu desplegable
   dataSubMenu:{title:string, content:string} = {
     title:'',
     content:''
   };
+  //esta funcion se encarga de mostrar el menu deplegable, de igual forma dependiendo el caso le asigna el contenido a las variables que contienen los datos a mostrar
   activateMenuVar(type:number) {
     switch (type) {
       case 0:
+        //Se llama la funcion showConocenos que se encarga de
         this.showConocenos();
         this.dataSubMenu = {
           title: 'Nuestra Historia',
@@ -36,9 +41,11 @@ export class LayoutPageComponent {
     this.varMenu =! this.varMenu;
 
   }
+  //Esta funcion se encarga de desactivar el menu
   deactivateMenuVar() {
     this.varMenu = false;
   }
+  //esta funcion se encarga de asignar los datos que se mostraran en la seccion de servicios
   showServices() {
     this.dataMenuVar = {
       title: 'Servicios',
@@ -86,6 +93,7 @@ export class LayoutPageComponent {
       ]
     }
   }
+  //esta funcion se encarga de asignar los datos que se mostraran en la seccion de conocenos
   showConocenos() {
     this.dataMenuVar = {
       title: 'Conocenos',
@@ -123,6 +131,7 @@ export class LayoutPageComponent {
       ]
     }
   }
+  //esta funcion se encarga de asignar los datos que se mostraran en el submenu desplegable
   showSubMenu(title:string){
     for(let i = 0;i<this.dataMenuVar.subTitle.length;i++){
       if(this.dataMenuVar.subTitle[i].title == title){

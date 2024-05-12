@@ -9,6 +9,7 @@ interface EventItem {
   styleUrl: './conocenos.component.css'
 })
 export class ConocenosComponent {
+  //esta variable contiene los eventos que se muestran en la linea del tiem´p
   events: EventItem[];
 
   constructor() {

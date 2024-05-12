@@ -11,7 +11,7 @@ import { SendAgendar } from '../interfaces/SendAgendar.interface';
 export class SilsaService {
 
   constructor(private http:HttpClient) { }
-
+  //esta funcion se encarga de enviar los datos al servidor mediante el metodo POST
   sendDataForm(data:SendEmail){
     return this.http.post<ResponseBack>('http://localhost:3000/send-email',data)
   }
