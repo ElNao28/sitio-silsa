@@ -1,5 +1,5 @@
 <!-- Este contenedor contiene el slider/carrucel de imagenes -->
-<div class="card">
+<!-- <div class="card">
   <p-carousel [value]="imagenes" [numVisible]="1" [numScroll]="1" [circular]="true">
     <ng-template let-imagen pTemplate="item">
       <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
@@ -9,81 +9,102 @@
       </div>
     </ng-template>
   </p-carousel>
+</div> -->
+<div *ngIf="isLoading" class="h-screen flex flex-col items-center justify-center">
+  <img src="../../../../assets/svg/loading.svg" alt="">
 </div>
-<!-- Este contenedor contiene la mision, vison, etc -->
-<div class="py-5">
-  <div class="grid md:grid-cols-2 gap-8 mx-14">
-
-    <div class="flex cursor-pointer rounded-md p-2 items-center container-silsa">
-      <img src="../../../../assets/img/incognita.png" alt="¿Que es silsa?" class="w-24 h-24">
-      <div>
-        <h2 class="font-bold text-2xl text-center">¿Que es silsa consultores?</h2>
-        <p class="">Silsa consultores es un grupo de profesionales experimentados en sus
-          áreas de trabajo. Con cobertura a nivel regional, que ofrece a las
-          empresas, herramientas para su desarrollo y consolidación en sus
-          actividades económicas.</p>
-      </div>
-    </div>
-
-    <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
-      <img src="../../../../assets/img/mision.png" alt="mision" class="w-24 h-24">
-      <div>
-        <h2 class="font-bold text-2xl">Nuestra Mision</h2>
-        <p>Somos una organización especializada en la creación,
-          desarrollo, aceleración y consolidación de ideas-proyectos para
-          emprendedores - empresarios a través de un equipo de alto
-          nivel comprometido con la innovación, calidad, rentabilidad y
-          un amplio espíritu de servicio fomentando la consolidación de
-          empresas de éxito en sus sectores.</p>
-      </div>
-    </div>
-
-    <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
-      <img src="../../../../assets/img/vision.png" alt="vision" class="w-24 h-24">
-      <div>
-        <h2 class="font-bold text-2xl">Nuestra Vision</h2>
-        <p>Para el 2020: <br>
-          Ser un referente líder en el sector, con presencia en
-          Latinoamérica, contribuyendo activamente al crecimiento
-          económico regional y sectorial, fomentando la competitividad,
-          productividad e innovación en las empresas, a través de la
-          consolidación de alianzas estratégicas establecidas.</p>
-      </div>
-    </div>
-
-    <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
-      <img src="../../../../assets/img/valores.png" alt="valores" class="w-24 h-24">
-      <div>
-        <h2 class="font-bold text-2xl">Nuestros Valores</h2>
-        <ul>
-          <li>Ética</li>
-          <li>Pasíon</li>
-          <li>Honestidad</li>
-          <li>Trabajo en equipo</li>
-        </ul>
-      </div>
+<div *ngIf="!isLoading">
+  <div class="img-index">
+    <div class="bg-black h-full bg-opacity-70 flex flex-col gap-5 items-center justify-center px-20">
+      <h3 class="text-white text-4xl font-bold">Hola Somos silsa, Bienvenido</h3>
+      <p class="text-white text-xl text-justify font-serif">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure blanditiis quis quidem, facilis unde sunt
+        accusamus maiores veritatis incidunt inventore minus impedit quibusdam exercitationem! Nemo in illum quibusdam
+        maxime inventore.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At ducimus nobis facilis quam deleniti sunt, expedita
+        consectetur nihil reprehenderit nesciunt accusamus similique consequuntur autem ad voluptatum illo voluptate
+        eligendi dolor?
+      </p>
     </div>
   </div>
+  <!-- Este contenedor contiene la mision, vison, etc -->
+  <div class="py-5">
+    <div class="grid md:grid-cols-2 gap-8 mx-14">
 
-  <div class="flex flex-col justify-center gap-5 mt-10 px-14">
-    <h2 class="text-center text-md md:text-2xl font-bold">El territorio Silsa cuenta con 23 consultores que cubren 21 municipios dentro de 13 estados.</h2>
-    <img src="../../../../assets/img/Mapa.png" alt="mapa_silsa">
-  </div>
-</div>
-<!-- aqui termina el contenedort de mision, vision etc -->
-
-<!-- Este contenedor contiene el slider/carrucel de imagenes de las noticias -->
-<div class="card">
-  <h2 class="text-center font-bold text-3xl">- Noticias recientes -</h2>
-  <p-carousel [value]="imagenes" [numVisible]="3" [numScroll]="1" [circular]="true">
-    <ng-template let-imagen pTemplate="item">
-      <div class="m-2 py-5 px-3 border-2">
-        <div class="mb-3">
-          <img [src]="imagen" [alt]="imagen" class="w-full h-52" />
+      <div class="flex cursor-pointer rounded-md p-2 items-center container-silsa">
+        <img src="../../../../assets/img/incognita.png" alt="¿Que es silsa?" class="w-24 h-24">
+        <div>
+          <h2 class="font-bold text-2xl text-center">¿Que es silsa consultores?</h2>
+          <p class="">Silsa consultores es un grupo de profesionales experimentados en sus
+            áreas de trabajo. Con cobertura a nivel regional, que ofrece a las
+            empresas, herramientas para su desarrollo y consolidación en sus
+            actividades económicas.</p>
         </div>
-        <h3 class="font-bold text-center text-xl">Noticia nueva</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem in optio minima nostrum laudantium eveniet veniam soluta accusantium, natus amet quas explicabo ipsam perspiciatis deleniti ipsa. Corporis quidem maiores eaque?</p>
       </div>
-    </ng-template>
-  </p-carousel>
+
+      <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
+        <img src="../../../../assets/img/mision.png" alt="mision" class="w-24 h-24">
+        <div>
+          <h2 class="font-bold text-2xl">Nuestra Mision</h2>
+          <p>Somos una organización especializada en la creación,
+            desarrollo, aceleración y consolidación de ideas-proyectos para
+            emprendedores - empresarios a través de un equipo de alto
+            nivel comprometido con la innovación, calidad, rentabilidad y
+            un amplio espíritu de servicio fomentando la consolidación de
+            empresas de éxito en sus sectores.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
+        <img src="../../../../assets/img/vision.png" alt="vision" class="w-24 h-24">
+        <div>
+          <h2 class="font-bold text-2xl">Nuestra Vision</h2>
+          <p>Para el 2020: <br>
+            Ser un referente líder en el sector, con presencia en
+            Latinoamérica, contribuyendo activamente al crecimiento
+            económico regional y sectorial, fomentando la competitividad,
+            productividad e innovación en las empresas, a través de la
+            consolidación de alianzas estratégicas establecidas.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 hover:bg-gray-300 cursor-pointer rounded-md p-2 items-center container-silsa">
+        <img src="../../../../assets/img/valores.png" alt="valores" class="w-24 h-24">
+        <div>
+          <h2 class="font-bold text-2xl">Nuestros Valores</h2>
+          <ul>
+            <li>Ética</li>
+            <li>Pasíon</li>
+            <li>Honestidad</li>
+            <li>Trabajo en equipo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-center gap-5 mt-10 px-14">
+      <h2 class="text-center text-md md:text-2xl font-bold">El territorio Silsa cuenta con 23 consultores que cubren 21
+        municipios dentro de 13 estados.</h2>
+      <img src="../../../../assets/img/Mapa.png" alt="mapa_silsa">
+    </div>
+  </div>
+  <!-- aqui termina el contenedort de mision, vision etc -->
+
+  <!-- Este contenedor contiene el slider/carrucel de imagenes de las noticias -->
+  <div class="card">
+    <h2 class="text-center font-bold text-3xl">- Noticias recientes -</h2>
+    <p-carousel [value]="imagenes" [numVisible]="3" [numScroll]="1" [circular]="true">
+      <ng-template let-imagen pTemplate="item">
+        <div class="m-2 py-5 px-3 border-2">
+          <div class="mb-3">
+            <img [src]="imagen" [alt]="imagen" class="w-full h-52" />
+          </div>
+          <h3 class="font-bold text-center text-xl">Noticia nueva</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem in optio minima nostrum laudantium
+            eveniet veniam soluta accusantium, natus amet quas explicabo ipsam perspiciatis deleniti ipsa. Corporis
+            quidem maiores eaque?</p>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
 </div>

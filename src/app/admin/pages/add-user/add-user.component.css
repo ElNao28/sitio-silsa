@@ -1,0 +1,7 @@
+.card-user{
+  transition-duration: 0.5s;
+}
+
+.card-user:hover{
+  transform: scale(1.02);
+}

@@ -12,3 +12,10 @@
 .container-silsa:hover{
   background-color: rgb(212, 212, 212);
 }
+.img-index{
+  background-image: url('../../../../assets/img/background-login.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 650px;
+}
