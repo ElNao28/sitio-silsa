@@ -13,85 +13,32 @@
       </button>
     </div>
   </div>
-  <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md">
-    <ul class="grid grid-cols-4">
+
+
+
+  <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md" *ngFor="let item of dataCitas.horarios">
+
+    <ul class="grid grid-cols-3 gap-10">
       <li class="flex flex-col">
-        <strong class="text-lg">Informacion general</strong>
-        <strong class="text-lg font-serif">Fecha: </strong>20/05/2024
-        <strong class="text-lg font-serif">Status: </strong> activa
-        <strong class="text-lg font-serif">Solicitante: </strong> Mario Moreno Cantinflas
+        <strong class="text-xl">Informacion general</strong>
+        <strong class="text-lg font-serif">Fecha: </strong>{{item.fecha}}
+        <strong class="text-lg font-serif">Status: </strong> {{item.status}}
+        <strong class="text-lg font-serif">Solicitante: </strong> {{item.dataCita.name + " " +item.dataCita.lastname + " " + item.dataCita.motherlastname}}
       </li>
       <li class="flex flex-col">
-        <strong class="text-lg">Contacto</strong>
-        <strong class="text-lg font-serif">Telefono:</strong>7891200315
-        <strong class="text-lg font-serif">Email:</strong>mario{{"@"}}gmail.com
+        <strong class="text-xl">Contacto</strong>
+        <strong class="text-lg font-serif">Telefono:</strong>{{item.dataCita.cellphone}}
+        <strong class="text-lg font-serif">Email:</strong>{{item.dataCita.email}}
       </li>
-      <li class="col-span-2">
+      <li>
         <div>
-          <strong class="text-lg text-center">Asunto:</strong>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem iure incidunt, fugiat, temporibus eos
-            ea a
-            nisi adipisci, laboriosam nemo eligendi debitis! Cupiditate illum natus molestiae assumenda fugit dolorem
-            nesciunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, suscipit voluptatem
-            asperiores
-            nobis voluptate quos deleniti eaque, deserunt dolorum quidem porro fuga placeat quisquam, et similique at
-            cupiditate sed iure.</p>
+          <strong class="text-xl text-center">Asunto</strong>
+          <p>{{item.dataCita.asunto}}</p>
         </div>
       </li>
     </ul>
+
   </div>
-  <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md">
-    <ul class="grid grid-cols-4">
-      <li class="flex flex-col">
-        <strong class="text-lg">Informacion general</strong>
-        <strong class="text-lg font-serif">Fecha: </strong>20/05/2024
-        <strong class="text-lg font-serif">Status: </strong> activa
-        <strong class="text-lg font-serif">Solicitante: </strong> Mario Moreno Cantinflas
-      </li>
-      <li class="flex flex-col">
-        <strong class="text-lg">Contacto</strong>
-        <strong class="text-lg font-serif">Telefono:</strong>7891200315
-        <strong class="text-lg font-serif">Email:</strong>mario{{"@"}}gmail.com
-      </li>
-      <li class="col-span-2">
-        <div>
-          <strong class="text-lg text-center">Asunto:</strong>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem iure incidunt, fugiat, temporibus eos
-            ea a
-            nisi adipisci, laboriosam nemo eligendi debitis! Cupiditate illum natus molestiae assumenda fugit dolorem
-            nesciunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, suscipit voluptatem
-            asperiores
-            nobis voluptate quos deleniti eaque, deserunt dolorum quidem porro fuga placeat quisquam, et similique at
-            cupiditate sed iure.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md">
-    <ul class="grid grid-cols-4">
-      <li class="flex flex-col">
-        <strong class="text-lg">Informacion general</strong>
-        <strong class="text-lg font-serif">Fecha: </strong>20/05/2024
-        <strong class="text-lg font-serif">Status: </strong> activa
-        <strong class="text-lg font-serif">Solicitante: </strong> Mario Moreno Cantinflas
-      </li>
-      <li class="flex flex-col">
-        <strong class="text-lg">Contacto</strong>
-        <strong class="text-lg font-serif">Telefono:</strong>7891200315
-        <strong class="text-lg font-serif">Email:</strong>mario{{"@"}}gmail.com
-      </li>
-      <li class="col-span-2">
-        <div>
-          <strong class="text-lg text-center">Asunto:</strong>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem iure incidunt, fugiat, temporibus eos
-            ea a
-            nisi adipisci, laboriosam nemo eligendi debitis! Cupiditate illum natus molestiae assumenda fugit dolorem
-            nesciunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, suscipit voluptatem
-            asperiores
-            nobis voluptate quos deleniti eaque, deserunt dolorum quidem porro fuga placeat quisquam, et similique at
-            cupiditate sed iure.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
+
+
 </div>

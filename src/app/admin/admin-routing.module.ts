@@ -28,7 +28,7 @@ const routes: Routes = [
           },
           {
             path:'administrar-citas',
-            component:AdministrarCitasComponent
+            component:AdministrarCitasComponent,
           },
           {
             path:'noticias',
@@ -41,7 +41,7 @@ const routes: Routes = [
           {
             path:'add-user',
             component:AddUserComponent
-          }
+          },
         ]
       }
     ]

@@ -1,101 +1,94 @@
 import { Component, OnInit } from '@angular/core';
 import { SilsaService } from '../../services/silsa.service';
-import { GetCitas, Horario } from '../../interfaces/GetCitas.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environments } from '../../../../environments/environments';
+import { Horarios } from '../../../admin/interfaces/Horarios.interface';
+import { Horario } from '../../interfaces/GetCitas.interface';
 
 @Component({
   selector: 'app-agendar-cita',
   templateUrl: './agendar-cita.component.html',
   styleUrl: './agendar-cita.component.css'
 })
-export class AgendarCitaComponent implements OnInit {
+export class AgendarCitaComponent {
   constructor(
     private silsaServices: SilsaService, // Servicio para obtener y enviar datos relacionados con citas
     private fb: FormBuilder, // Constructor para formularios reactivos
   ) { }
 
-  // Arreglo que almacena los datos de las citas obtenidas
-  public dataHorarios: GetCitas[] = [];
+  public keyCapche:string = environments.keyRecapcha
+  public next:boolean = false;
+  public capchaResolve:boolean = false;
+  public horarios:Horarios[] = [];
+  public horas:Horario[] = [];
 
-  // Arreglo que contiene los números del 1 al 31, representando los días del mes
-  public dias: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-
-  // Arreglo que almacenará los días disponibles para citas
-  public diasDisponibles: number[] = [];
-
-  // Arreglo que almacenará los horarios disponibles para una cita en un día específico
-  public horarios: Horario[] = [];
-
-  // Número que representa el horario seleccionado para la cita
-  public selectHorario: number = 0;
-
-  // FormGroup para el formulario de selección de horario
-  public formHorario: FormGroup = this.fb.group({
-    id: ['', Validators.required]
+  public formData:FormGroup = this.fb.group({
+    name:['',[Validators.required]],
+    lastname:['', [Validators.required]],
+    motherlastname:['', [Validators.required]],
+    cellphone:['',[Validators.required,Validators.minLength(10)]],
+    email:['',[Validators.required,Validators.email]]
   });
 
-  // FormGroup para el formulario de datos del cliente
-  public formData: FormGroup = this.fb.group({
-    name: ['', [Validators.required]],
-    email: ['', [Validators.required]],
-    cellphone: ['', [Validators.required]],
-    message: ['', [Validators.required]],
+  public formCita:FormGroup = this.fb.group({
+    asunto:['', [Validators.required]],
+    idHorario:['', [Validators.required]],
+    idHora:['', [Validators.required]]
   });
 
-  ngOnInit(): void {
-    // Se suscribe al servicio para obtener los horarios disponibles
-    this.silsaServices.getHorarios().subscribe(data => {
-      this.dataHorarios = data;
-      // Se llena el arreglo de días disponibles con los días obtenidos
-      for (let i = 0; i < this.dataHorarios.length; i++) {
-        this.diasDisponibles.push(this.dataHorarios[i].dia)
-      }
-    });
+  changeNextValue(){
+    if(this.formData.invalid) return alert('Completa los campos')
+    if(!this.capchaResolve) return alert('Resuelve el recaptcha')
+    this.next =!this.next;
+    this.silsaServices.getHorarios().subscribe(data =>{
+      this.horarios = data;
+    })
   }
-
-  // Booleano que controla la visibilidad de ciertos elementos en la interfaz de usuario
-  next: boolean = false;
-
-  // Función que alterna el valor de 'next'
-  changeForm() {
-    this.next = !this.next;
+  capchaIsResolve(){
+    this.capchaResolve = true;
   }
-
-  // Función que comprueba si un día está disponible para citas
-  dayFound(day: number) {
-    for (let i = 0; i < this.diasDisponibles.length; i++) {
-      if (day === this.diasDisponibles[i]) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  // Función que muestra los horarios disponibles para un día específico
-  showHorario(day: number) {
-    for (let i = 0; i < this.dataHorarios.length; i++) {
-      if (day === this.dataHorarios[i].dia) {
-        this.horarios = this.dataHorarios[i].horarios;
+  addHoras(idDate:string){
+    for(let i=0;i<this.horarios.length;i++){
+      if(this.horarios[i].id === parseInt(idDate)){
+        this.horas = this.horarios[i].horarios;
+        this.formCita.controls['idHora'].reset();
       }
     }
   }
+  viewMes(mes: number){
+    switch(mes){
+      case 1: return 'Enero';
+      case 2: return 'Febrero';
+      case 3: return 'Marzo';
+      case 4: return 'Abril';
+      case 5: return 'Mayo';
+      case 6: return 'Junio';
+      case 7: return 'Julio';
+      case 8: return 'Agosto';
+      case 9: return 'Septiembre';
+      case 10: return 'Octubre';
+      case 11: return 'Noviembre';
+      case 12: return 'Diciembre';
+      default: return '';
+    }
+  }
+  sendCodeByConfirmation(){
+    if(this.formCita.invalid) return alert('Completa los campos')
+    if(this.formCita.controls['idHora'].value === "Na") return console.log('eelige una opcion valida')
 
-  // Función que envía los datos del formulario de cita al servidor y espera recibir un código de confirmación
-  sendDataAndGetCode() {
-    this.silsaServices.sendCode({
-      id: this.formHorario.value.id,
-      name: this.formData.value.name,
-      email: this.formData.value.email,
-      cellphone: this.formData.value.cellphone,
-      message: this.formData.value.message
-    }).subscribe(data => {
-      // Si la solicitud es exitosa, reinicia el formulario de datos del cliente, cambia el estado de 'next' y muestra una alerta
-      if (data.status === 200) {
-        this.formData.reset();
-        this.next = !this.next;
-        alert("Se ha enviado un código de confirmación a tu correo");
-      }
-      console.log(data);
+    const dataByUser = {
+      name: this.formData.controls['name'].value,
+      lastname: this.formData.controls['lastname'].value,
+      motherlastname: this.formData.controls['motherlastname'].value,
+      cellphone: this.formData.controls['cellphone'].value,
+      email: this.formData.controls['email'].value,
+      asunto: this.formCita.controls['asunto'].value,
+      idHorario: this.formCita.controls['idHora'].value
+    }
+    this.silsaServices.sendCodeByConfirmation(dataByUser).subscribe(data =>{
+      if(data.status === 200) return alert("Se anviado un codigo de confirmacion")
     });
+    this.formCita.reset();
+    this.formData.reset();
   }
 }

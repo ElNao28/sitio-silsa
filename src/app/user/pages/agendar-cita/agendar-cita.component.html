@@ -8,66 +8,69 @@
       <h2 class="text-5xl font-serif text-blue-900">Agenda una cita</h2>
     </div>
   </div>
-  <div class="flex justify-center">
-    <!-- Formulario para datos del cliente -->
-    <form [formGroup]="formData" class="bg-gray-200 p-8 lg:w-2/5 rounded-md flex flex-col gap-3" *ngIf="!next">
+  <div class="mx-5 md:mx-20 flex justify-center bg-gray-200 rounded-md py-5" *ngIf="!next">
+
+    <form class="md:grid gap-3 w-4/5 md:grid-cols-3" [formGroup]="formData">
+      <h3 class="text-3xl text-center md:col-span-3 mb-5 font-bold">Ingresa tus datos</h3>
       <div class="flex flex-col">
-        <label for="nombre" class="text-lg">Nombre</label>
-        <input formControlName="name" type="text" placeholder="Ejem.Juan perez" class="rounded-md">
+        <label for="name">Nombre</label>
+        <input type="text" class="rounded-md" formControlName="name">
       </div>
       <div class="flex flex-col">
-        <label for="email" class="text-lg">Correo electronico</label>
-        <input formControlName="email" type="email" placeholder="Ejem.Juan@gmail.com" class="rounded-md">
+        <label for="lastname">Apellido paterno</label>
+        <input type="text" class="rounded-md" formControlName="lastname">
       </div>
       <div class="flex flex-col">
-        <label for="telefono" class="text-lg">Numero de telefono</label>
-        <input formControlName="cellphone" type="number" placeholder="Ejem.7894561230" class="rounded-md">
+        <label for="motherlastname">Apellido materno</label>
+        <input type="text" class="rounded-md" formControlName="motherlastname">
+      </div>
+      <div class="flex flex-col col-span-2">
+        <label for="email">Correo electronico</label>
+        <input type="text" class="rounded-md" formControlName="email">
       </div>
       <div class="flex flex-col">
-        <label for="asunto" class="text-lg">Asunto</label>
-        <textarea formControlName="message" name="asunto" id="" cols="30" rows="10" placeholder="Asunto..." class="rounded-md"></textarea>
+        <label for="cellphone">Numero de telefono</label>
+        <input type="text" class="rounded-md" formControlName="cellphone">
       </div>
-      <div>
-        <!-- Botón para pasar al siguiente paso del formulario -->
-        <button class="px-3 py-2 bg-blue-700 text-white rounded-md" (click)="changeForm()" [disabled]="formData.invalid">Siguiente</button>
+      <div class="col-span-3 flex flex-col gap-3 mt-3">
+        <re-captcha [siteKey]="keyCapche" (resolved)="capchaIsResolve()"></re-captcha>
+        <button class="px-3 py-2 text-white bg-blue-500 rounded-md" (click)="changeNextValue()">Continuar</button>
       </div>
     </form>
+  </div>
+  <div class="mx-5 md:mx-20 bg-gray-200 rounded-md py-5 px-10" *ngIf="next">
+    <form class="md:grid md:grid-cols-3 gap-5" [formGroup]="formCita">
+    <h3 class="text-3xl text-center col-span-3 font-bold">Detalles de la cita</h3>
 
-    <!-- Formulario para seleccionar día y horario de la cita -->
-    <form *ngIf="next" class="flex flex-col gap-4 bg-gray-200 p-8 rounded-md">
-      <p>Selecciona un dia para tu cita:</p>
-      <!-- Lista de días del mes -->
-      <ul class="grid grid-cols-7 gap-5 border-2 border-red-800 p-4 rounded-md text-center border-opacity-50 bg-white">
-        <li class="col-span-7 font-bold">Abril 2024</li>
-        <li>Do</li>
-        <li>Lu</li>
-        <li>Ma</li>
-        <li>Mi</li>
-        <li>Ju</li>
-        <li>Vi</li>
-        <li>Sa</li>
-        <!-- Se itera sobre los días disponibles -->
-        <li *ngFor="let item of dias"
-          [ngClass]="{'bg-green-500 rounded-sm cursor-pointer hover:bg-green-400':dayFound(item)}"
-          (click)="showHorario(item)">{{item}}</li>
-      </ul>
-      <div>
-        <!-- Formulario para seleccionar el horario de la cita -->
-        <form [formGroup]="formHorario" class="flex flex-col gap-1">
-          <label for="">Selecciona un horario para tu cita:</label>
-          <select name="" id="" formControlName="id">
-            <!-- Se muestran las opciones de horarios disponibles -->
-            <option value="" disabled selected>Selecciona una opcion</option>
-            <option [value]="item.id" *ngFor="let item of horarios">{{item.hora}}</option>
-          </select>
-        </form>
-      </div>
-      <div class="flex justify-between">
-        <!-- Botón para cancelar la cita -->
-        <button class="bg-red-600 p-2 rounded-md text-white" (click)="changeForm()" type="button">Cancelar</button>
-        <!-- Botón para confirmar la cita -->
-        <button class="bg-blue-700 p-2 rounded-md text-white" (click)="sendDataAndGetCode()" type="button">Confirmar</button>
-      </div>
+    <div class="flex flex-col col-span-3">
+      <label for="">Motivo de la cita</label>
+      <select class="rounded-md" formControlName="asunto">
+        <option value="representante">Hablar con un representante</option>
+        <option value="ayuda">Ayuda con un asunto</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col col-span-2">
+      <label for="">Fechas Disponibles</label>
+      <select class="rounded-md" formControlName="idHorario" (change)="addHoras(formCita.controls['idHorario'].value)">
+        <option [value]="item.id" *ngFor="let item of horarios">
+          {{item.dia}} - {{viewMes(item.mes)}} - {{item.anio}}
+        </option>
+      </select>
+    </div>
+
+    <div class="flex flex-col">
+      <label for="">Horarios Disponibles</label>
+      <select class="rounded-md" formControlName="idHora">
+        <option value="Na">Selecciona una hora</option>
+        <option [value]="item.id" *ngFor="let item of horas">{{item.hora}}</option>
+      </select>
+    </div>
+
+    <div class="col-span-3 flex justify-end items-center mt-3">
+      <button class="px-3 py-2 text-white bg-blue-500 rounded-md w-full" (click)="sendCodeByConfirmation()">Confirmar</button>
+    </div>
     </form>
   </div>
 </div>

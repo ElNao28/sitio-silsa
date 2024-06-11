@@ -11,6 +11,7 @@ import { ViewNoticiasComponent } from './pages/view-noticias/view-noticias.compo
 import { ViewPerfilComponent } from './pages/view-perfil/view-perfil.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { AdministrarCitasComponent } from './pages/administrar-citas/administrar-citas.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ import { AdministrarCitasComponent } from './pages/administrar-citas/administrar
     ViewNoticiasComponent,
     ViewPerfilComponent,
     AddUserComponent,
-    AdministrarCitasComponent
+    AdministrarCitasComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    RecaptchaModule
+    RecaptchaModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
