@@ -1,31 +1,34 @@
+<div *ngIf="isLoading" class="h-screen flex flex-col items-center justify-center">
+  <img src="../../../../assets/svg/loading.svg" alt="">
+</div>
+<div *ngIf="!isLoading">
   <div class="mt-10">
     <div class="flex justify-center items-center gap-3 mb-8">
       <img src="../../../../assets/img/flaticon.png" alt="">
-      <h2 class="text-5xl font-serif text-blue-900">Silsa team</h2>
+      <h2 class="text-5xl font-serif text-blue-900 underline">Silsa team</h2>
     </div>
   </div>
-<div class="px-20 grid grid-cols-4 mt-10 gap-8">
-<div class="flex col-span-4 items-center gap-3">
-  <label for="">Filtrar por: </label>
-  <select name="" id="">
-    <option value="">Coahuila</option>
-    <option value="">Nuevo León</option>
-  </select>
-</div>
-  <div class="shadow-lg flex flex-col rounded-sm container-team border-2 border-gray-200" *ngFor="let item of silsaTeam">
-    <img [src]="item.img" alt="" class="rounded-t-sm">
-    <div class="flex flex-col p-4">
-      <h4 class="font-bold text-xl">{{item.nombre}}</h4>
-      <p class="font-serif font-semibold">{{item.cargo}}</p>
-      <ul class="mt-2">
-        <li>Ubicacion: <i class="text-gray-500">{{item.ubicacion}}</i></li>
-        <li>Correo: <i class="text-gray-500">{{item.correo}}</i></li>
-        <li>Whatsapp: <i class="text-gray-500">{{item.whasatsapp}}</i></li>
-        <li>Telefono: <i class="text-gray-500">{{item.telefono}}</i></li>
-      </ul>
+  <div class="px-20 grid grid-cols-4 mt-10 gap-8">
+    <div class="flex col-span-4 items-center gap-3">
+      <label for="">Filtrar por: </label>
+      <select name="" id="">
+        <option value="">Coahuila</option>
+        <option value="">Nuevo León</option>
+      </select>
+    </div>
+    <div class="shadow-lg flex flex-col rounded-sm container-team border-2 border-gray-200"
+      *ngFor="let item of silsaTeam">
+      <img [src]="item.img" alt="" class="rounded-t-sm">
+      <div class="flex flex-col p-4">
+        <h4 class="font-bold text-xl">{{item.nombre}}</h4>
+        <p class="font-serif font-semibold">{{item.cargo}}</p>
+        <ul class="mt-2">
+          <li>Ubicacion: <i class="text-gray-500">{{item.ubicacion}}</i></li>
+          <li>Correo: <i class="text-gray-500">{{item.correo}}</i></li>
+          <li>Whatsapp: <i class="text-gray-500">{{item.whasatsapp}}</i></li>
+          <li>Telefono: <i class="text-gray-500">{{item.telefono}}</i></li>
+        </ul>
+      </div>
     </div>
   </div>
-
-
-
 </div>

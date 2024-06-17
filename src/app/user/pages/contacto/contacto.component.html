@@ -1,4 +1,7 @@
-<div>
+<div *ngIf="isLoading" class="h-screen flex flex-col items-center justify-center">
+  <img src="../../../../assets/svg/loading.svg" alt="">
+</div>
+<div *ngIf="!isLoading">
   <img src="../../../../assets/img/servicios.png" alt="servicios" class="w-full">
   <div class="mt-10">
     <div class="flex justify-center items-center gap-3 mb-8">
@@ -38,6 +41,4 @@
     </div>
   </form>
  </div>
-
-
 </div>

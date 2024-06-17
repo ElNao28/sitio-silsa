@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SilsaService } from '../../services/silsa.service';
 import { environments } from '../../../../environments/environments';
@@ -8,8 +8,9 @@ import { environments } from '../../../../environments/environments';
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit{
   constructor(private fb:FormBuilder,private silsaService:SilsaService){}
+
   //esta variables es para checar que el recapcha allá sido resuelto
   public recapchaResolve = false;
   //esta variable contiene la llave del recapcha
@@ -21,7 +22,12 @@ export class ContactoComponent {
     email:['',[Validators.required,Validators.email]],
     message:['',[Validators.required,Validators.minLength(10)]]
   });
-
+  public isLoading:boolean = true;
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+  }
   //esta funcion escucha el evento, cuando se resuelve el recapcha
   resolved(captchaResponse: any) {
     console.log(`Resolved captcha with response: ${captchaResponse}`);

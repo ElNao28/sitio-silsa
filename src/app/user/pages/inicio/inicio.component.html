@@ -1,15 +1,3 @@
-<!-- Este contenedor contiene el slider/carrucel de imagenes -->
-<!-- <div class="card">
-  <p-carousel [value]="imagenes" [numVisible]="1" [numScroll]="1" [circular]="true">
-    <ng-template let-imagen pTemplate="item">
-      <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-        <div class="mb-3">
-          <img [src]="imagen" [alt]="imagen" class="w-full slider" />
-        </div>
-      </div>
-    </ng-template>
-  </p-carousel>
-</div> -->
 <div *ngIf="isLoading" class="h-screen flex flex-col items-center justify-center">
   <img src="../../../../assets/svg/loading.svg" alt="">
 </div>

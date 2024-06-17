@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 interface EventItem {
   fecha?: string;
   contenido?: string;
@@ -8,10 +8,10 @@ interface EventItem {
   templateUrl: './conocenos.component.html',
   styleUrl: './conocenos.component.css'
 })
-export class ConocenosComponent {
+export class ConocenosComponent implements OnInit{
   //esta variable contiene los eventos que se muestran en la linea del tiem´p
   events: EventItem[];
-
+  public isLoading: boolean = true;
   constructor() {
     this.events = [
       {
@@ -51,5 +51,10 @@ export class ConocenosComponent {
         contenido: 'Facilitadores del Programa Municipal de Incubación en linea en Tamaulipas.'
       }
     ];
+  }
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 }

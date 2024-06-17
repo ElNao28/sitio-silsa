@@ -1,24 +1,26 @@
-<img src="../../../../assets/img/servicios.png" alt="servicios" class="w-full">
-<div class="mt-10">
-  <div class="flex justify-center items-center gap-3 mb-10">
-    <img src="../../../../assets/img/flaticon.png" alt="">
-    <h2 class="text-5xl font-serif text-blue-900">Nuestra Historia</h2>
-  </div>
+<div *ngIf="isLoading" class="h-screen flex flex-col items-center justify-center">
+  <img src="../../../../assets/svg/loading.svg" alt="">
 </div>
-
-<div class="flex flex-col justify-center items-center mb-8" *ngFor="let item of events">
-
-
-
-  <div class="flex justify-start w-2/4 gap-5 lg:text-justify">
-    <div class="border-r-4 pr-3 border-red-600">
-      <p class="text-blue-900 font-semibold text-xl">{{item.fecha}}</p>
-    </div>
-    <div class="border-b-2 border-red-100">
-      <p class="text-md font-serif">{{item.contenido}}</p>
+<div *ngIf="!isLoading">
+  <img src="../../../../assets/img/servicios.png" alt="servicios" class="w-full">
+  <div class="mt-10">
+    <div class="flex justify-center items-center gap-3 mb-10">
+      <img src="../../../../assets/img/flaticon.png" alt="">
+      <h2 class="text-5xl font-serif text-blue-900">Nuestra Historia</h2>
     </div>
   </div>
 
+  <div class="flex flex-col justify-center items-center mb-8" *ngFor="let item of events">
 
 
+
+    <div class="flex justify-start w-2/4 gap-5 lg:text-justify">
+      <div class="border-r-4 pr-3 border-red-600">
+        <p class="text-blue-900 font-semibold text-xl">{{item.fecha}}</p>
+      </div>
+      <div class="border-b-2 border-red-100">
+        <p class="text-md font-serif">{{item.contenido}}</p>
+      </div>
+    </div>
+  </div>
 </div>

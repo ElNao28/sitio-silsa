@@ -8,6 +8,8 @@ import { ViewPerfilComponent } from './pages/view-perfil/view-perfil.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ViewNoticiasComponent } from './pages/view-noticias/view-noticias.component';
 import { AdministrarCitasComponent } from './pages/administrar-citas/administrar-citas.component';
+import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
+import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.component';
 
 const routes: Routes = [
   {
@@ -42,7 +44,23 @@ const routes: Routes = [
             path:'add-user',
             component:AddUserComponent
           },
+          {
+            path:'add-noticia',
+            component:AddNoticiaComponent
+          },
+          {
+            path:'edit-noticia/:id',
+            component:EditNoticiaComponent
+          },
+          {
+            path:'**',
+            redirectTo:'citas'
+          }
         ]
+      },
+      {
+        path:'**',
+        redirectTo:'login'
       }
     ]
   }

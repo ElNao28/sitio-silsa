@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TeamData } from '../../interfaces/Team.interface';
 
 @Component({
@@ -6,7 +6,8 @@ import { TeamData } from '../../interfaces/Team.interface';
   templateUrl: './team.component.html',
   styleUrl: './team.component.css'
 })
-export class TeamComponent {
+export class TeamComponent implements OnInit{
+
   silsaTeam:TeamData[] = [
     {
       img: '../../../../assets/img/ofinista.jpg',
@@ -117,5 +118,10 @@ export class TeamComponent {
       telefono: '833 3 72 11 33'
     },
   ];
-
+  public isLoading: boolean = true;
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+  }
 }

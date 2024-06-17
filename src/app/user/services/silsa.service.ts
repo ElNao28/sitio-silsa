@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { SendEmail } from '../interfaces/SendEmail.interface';
 import { ResponseBack } from '../interfaces/Response.interface';
 import { Horarios } from '../../admin/interfaces/Horarios.interface';
+import { Noticias } from '../../admin/interfaces/DataNoticias.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class SilsaService {
 
   sendCodeByConfirmation(dataCita:any){
     return this.http.post<ResponseBack>('http://localhost:3000/citas/send-code',dataCita)
+  }
+
+  getNoticias(){
+    return this.http.get<Noticias>('http://localhost:3000/noticias/all')
   }
 }

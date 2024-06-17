@@ -12,6 +12,8 @@ import { ViewPerfilComponent } from './pages/view-perfil/view-perfil.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { AdministrarCitasComponent } from './pages/administrar-citas/administrar-citas.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
+import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewPerfilComponent,
     AddUserComponent,
     AdministrarCitasComponent,
+    AddNoticiaComponent,
+    EditNoticiaComponent,
   ],
   imports: [
     CommonModule,

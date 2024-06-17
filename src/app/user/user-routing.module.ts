@@ -10,6 +10,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { TeamComponent } from './pages/team/team.component';
 import { AgendarCitaComponent } from './pages/agendar-cita/agendar-cita.component';
 import { ConfirmarCitaComponent } from './pages/confirmar-cita/confirmar-cita.component';
+import { ViewNoticiaComponent } from './pages/view-noticia/view-noticia.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path:'confirmar-cita/:id',
         component:ConfirmarCitaComponent
+      },
+      {
+        path:'noticias/view/:id',
+        component:ViewNoticiaComponent
       },
       {
         path:'',
