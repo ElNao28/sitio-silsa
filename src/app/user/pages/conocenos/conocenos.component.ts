@@ -49,6 +49,38 @@ export class ConocenosComponent implements OnInit{
       {
         fecha: '2016',
         contenido: 'Facilitadores del Programa Municipal de Incubación en linea en Tamaulipas.'
+      },
+      {
+        fecha: '2017',
+        contenido: ''
+      },
+      {
+        fecha: '2018',
+        contenido: ''
+      },
+      {
+        fecha: '2019',
+        contenido: ''
+      },
+      {
+        fecha: '2020',
+        contenido: ''
+      },
+      {
+        fecha: '2021',
+        contenido: ''
+      },
+      {
+        fecha: '2022',
+        contenido: ''
+      },
+      {
+        fecha: '2023',
+        contenido: ''
+      },
+      {
+        fecha: '2024',
+        contenido: ''
       }
     ];
   }
