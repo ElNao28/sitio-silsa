@@ -18,6 +18,7 @@ export class ViewCitasComponent implements OnInit{
   ngOnInit(): void {
     this.adminService.getDataCitas().subscribe(data => {
       this.dataCitas = data;
+      console.log(this.dataCitas);
     });
   }
 

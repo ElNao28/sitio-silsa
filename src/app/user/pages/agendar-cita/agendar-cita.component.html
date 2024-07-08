@@ -55,7 +55,7 @@
       <label for="">Fechas Disponibles</label>
       <select class="rounded-md" formControlName="idHorario" (change)="addHoras(formCita.controls['idHorario'].value)">
         <option [value]="item.id" *ngFor="let item of horarios">
-          {{item.dia}} - {{viewMes(item.mes)}} - {{item.anio}}
+          {{item.fecha}}
         </option>
       </select>
     </div>

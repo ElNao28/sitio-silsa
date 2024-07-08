@@ -19,7 +19,11 @@ export class AddNoticiaComponent {
   });
 
   createNoticia() {
-    const fecha = new Date().getFullYear();
+    const day:string = new Date().getDate().toString().padStart(2, '0');
+    const month:string = (new Date().getMonth()+1).toString().padStart(2, '0');
+    const year:number = new Date().getFullYear()
+    const fecha = `${year}-${month}-${day}`;
+    console.log(fecha);
     this.formNoticia.patchValue({
       fecha: fecha,
       autor: "carlitos perez"

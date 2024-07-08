@@ -12,7 +12,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { ConocenosComponent } from './pages/conocenos/conocenos.component';
 import { TeamComponent } from './pages/team/team.component';
 import { AgendarCitaComponent } from './pages/agendar-cita/agendar-cita.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ConfirmarCitaComponent } from './pages/confirmar-cita/confirmar-cita.component';
@@ -39,6 +39,7 @@ import { ViewNoticiaComponent } from './pages/view-noticia/view-noticia.componen
     ReactiveFormsModule,
     HttpClientModule,
     RecaptchaModule,
+    FormsModule
   ]
 })
 export class UserModule { }

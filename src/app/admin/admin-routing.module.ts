@@ -10,6 +10,8 @@ import { ViewNoticiasComponent } from './pages/view-noticias/view-noticias.compo
 import { AdministrarCitasComponent } from './pages/administrar-citas/administrar-citas.component';
 import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
 import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.component';
+import { canActivateGuard } from './guards/can-activate.guard';
+import { canMatchGuard } from './guards/can-match.guard';
 
 const routes: Routes = [
   {
@@ -18,11 +20,15 @@ const routes: Routes = [
     children:[
       {
         path:'login',
-        component:LoginComponent
+        component:LoginComponent,
+        canActivate:[!canActivateGuard],
+        canMatch:[!canMatchGuard]
       },
       {
         path:'dashboard',
         component:DashboardComponent,
+        canActivate:[canActivateGuard],
+        canMatch:[canMatchGuard],
         children:[
           {
             path:'citas',
@@ -60,7 +66,7 @@ const routes: Routes = [
       },
       {
         path:'**',
-        redirectTo:'login'
+        redirectTo:'/inicio'
       }
     ]
   }

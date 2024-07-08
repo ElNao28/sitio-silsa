@@ -6,4 +6,5 @@ export interface TeamData{
   correo:string;
   whasatsapp:string;
   telefono:string;
+  estado:string;
 }

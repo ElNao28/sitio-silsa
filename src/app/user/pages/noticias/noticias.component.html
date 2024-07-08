@@ -2,26 +2,31 @@
   <img src="../../../../assets/svg/loading.svg" alt="">
 </div>
 <div *ngIf="!isLoading" class="px-5 py-10 gap-10">
-  <div class="">
+
+  <div class="px-20 mb-5">
     <div class="flex justify-center items-center gap-3 mb-8">
       <img src="../../../../assets/img/flaticon.png" alt="">
       <h2 class="text-5xl font-serif text-blue-900 underline">Noticias</h2>
     </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate corporis blanditiis voluptatibus non, possimus
+      hic beatae explicabo id, eveniet necessitatibus sed. Ducimus quia illum aliquid nemo similique totam nam
+      officia!Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, sapiente tempora reiciendis ut,
+      veritatis expedita, at quisquam nemo aspernatur optio impedit saepe eveniet magnam sint earum velit! Illo, vel
+      doloribus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut a molestias placeat praesentium nam
+      eveniet, quibusdam commodi voluptate odit perferendis magnam iste sequi dolorum aspernatur itaque illo architecto
+      rerum. Optio?
+    </p>
   </div>
-
-  <div class="grid grid-cols-3 gap-5">
-    <div class="col-span-2">
-      <div *ngFor="let item of noticias" class="shadow-lg flex mb-5 rounded-md">
-        <img src="../../../../assets/img/logoSil.png" alt="" class="rounded-md w-40">
-        <div class="px-3 py-5">
-          <a class="font-bold text-xl capitalize" routerLink="/noticias/view/{{item.id}}">{{item.titulo}}</a>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum delectus numquam facilis perspiciatis maxime culpa veniam velit sunt, maiores in nihil nesciunt vero consequuntur nulla sint unde aperiam inventore ipsum.</p>
-        </div>
+  <hr class="my-5 mx-10 border-2 border-red-700">
+  <div class="grid grid-cols-3 gap-5 mx-40 items-center justify-center">
+    <div *ngFor="let item of noticias" class="bg-white shadow-lg">
+      <img src="../../../../assets/img/ofinista.jpg" alt="" class="w-full h-40">
+      <div class="pt-2 pb-5 px-2">
+        <p class="capitalize font-serif cursor-pointer hover:underline text-xl" routerLink="/noticias/view/{{item.id}}">{{item.titulo}}</p>
+        <p class="text-gray-600 text-sm">{{item.fecha}}</p>
       </div>
     </div>
-    <div class="rounded-md p-4 h-1/6 shadow-lg">
-      <h4 class="text-center font-bold text-2xl mb-5">Noticias silsa</h4>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus explicabo recusandae atque libero illum iure fugiat excepturi molestiae consequuntur, porro rem, optio, placeat ad nihil. Aliquam quia aliquid eaque nam?</p>
-    </div>
   </div>
+
+
 </div>

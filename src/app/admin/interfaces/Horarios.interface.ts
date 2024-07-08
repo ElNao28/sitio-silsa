@@ -1,8 +1,6 @@
 export interface Horarios {
   id:       number;
-  dia:      number;
-  mes:      number;
-  anio:     number;
+  fecha:string;
   status:   string;
   horarios: Horario[];
 }

@@ -5,6 +5,8 @@ import { DataCitas } from '../interfaces/DataCitas.interface';
 import { ResponseBack } from '../../user/interfaces/Response.interface';
 import { Noticia, Noticias } from '../interfaces/DataNoticias.interfaces';
 import { CreateNoticia } from '../interfaces/CreateNoticia.interface';
+import { Login } from '../interfaces/ResponseLogin.interface';
+import { CheckRol } from '../interfaces/CheckRol.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +47,11 @@ export class AdminService {
   }
   updateNoticia(id:string,dataNoticia:CreateNoticia){
     return this.http.patch<ResponseBack>('http://localhost:3000/noticias/update-noticia/'+id,dataNoticia);
+  }
+  loginAdmin(data:any){
+    return this.http.post<Login>('http://localhost:3000/acounts/login',data);
+  }
+  checkRol(id:string){
+    return this.http.post<CheckRol>('http://localhost:3000/acounts/rol/',{id:id});
   }
 }

@@ -4,6 +4,7 @@ import { SendEmail } from '../interfaces/SendEmail.interface';
 import { ResponseBack } from '../interfaces/Response.interface';
 import { Horarios } from '../../admin/interfaces/Horarios.interface';
 import { Noticias } from '../../admin/interfaces/DataNoticias.interfaces';
+import { TreeNotices } from '../interfaces/TreeNotices.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,8 @@ export class SilsaService {
 
   getNoticias(){
     return this.http.get<Noticias>('http://localhost:3000/noticias/all')
+  }
+  getTreeNotices(){
+    return this.http.get<TreeNotices>('http://localhost:3000/noticias/tree')
   }
 }
