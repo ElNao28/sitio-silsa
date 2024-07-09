@@ -7,6 +7,7 @@ import { Noticia, Noticias } from '../interfaces/DataNoticias.interfaces';
 import { CreateNoticia } from '../interfaces/CreateNoticia.interface';
 import { Login } from '../interfaces/ResponseLogin.interface';
 import { CheckRol } from '../interfaces/CheckRol.interface';
+import { GetProfile } from '../interfaces/GetProfile.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,8 @@ export class AdminService {
   }
   checkRol(id:string){
     return this.http.post<CheckRol>('http://localhost:3000/acounts/rol/',{id:id});
+  }
+  getProfile(id:string){
+    return this.http.post<GetProfile>('http://localhost:3000/acounts/get-data',{id:id})
   }
 }

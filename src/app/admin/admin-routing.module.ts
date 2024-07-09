@@ -21,8 +21,6 @@ const routes: Routes = [
       {
         path:'login',
         component:LoginComponent,
-        canActivate:[!canActivateGuard],
-        canMatch:[!canMatchGuard]
       },
       {
         path:'dashboard',
