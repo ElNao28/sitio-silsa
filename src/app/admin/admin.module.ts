@@ -14,6 +14,7 @@ import { AdministrarCitasComponent } from './pages/administrar-citas/administrar
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
 import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.component';
+import { NewAdminComponent } from './pages/new-admin/new-admin.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.componen
     AdministrarCitasComponent,
     AddNoticiaComponent,
     EditNoticiaComponent,
+    NewAdminComponent,
   ],
   imports: [
     CommonModule,

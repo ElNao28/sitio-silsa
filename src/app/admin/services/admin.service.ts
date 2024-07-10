@@ -8,6 +8,7 @@ import { CreateNoticia } from '../interfaces/CreateNoticia.interface';
 import { Login } from '../interfaces/ResponseLogin.interface';
 import { CheckRol } from '../interfaces/CheckRol.interface';
 import { GetProfile } from '../interfaces/GetProfile.interface';
+import { GetListAdmins } from '../interfaces/GetListAdmins.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,17 @@ export class AdminService {
   }
   getProfile(id:string){
     return this.http.post<GetProfile>('http://localhost:3000/acounts/get-data',{id:id})
+  }
+  getAdmins(){
+    return this.http.get<GetListAdmins>('http://localhost:3000/acounts/get-admins')
+  }
+  activateAdmin(id:string){
+    return this.http.post<ResponseBack>('http://localhost:3000/acounts/activate-admin',{id:id})
+  }
+  desactivateAdmin(id:string){
+    return this.http.post<ResponseBack>('http://localhost:3000/acounts/desactivate-admin',{id:id})
+  }
+  deleteAdmin(id:string){
+    return this.http.delete<ResponseBack>('http://localhost:3000/acounts/delete-admin/'+id)
   }
 }

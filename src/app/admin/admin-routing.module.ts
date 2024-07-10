@@ -12,6 +12,7 @@ import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
 import { EditNoticiaComponent } from './pages/edit-noticia/edit-noticia.component';
 import { canActivateGuard } from './guards/can-activate.guard';
 import { canMatchGuard } from './guards/can-match.guard';
+import { NewAdminComponent } from './pages/new-admin/new-admin.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
           {
             path:'edit-noticia/:id',
             component:EditNoticiaComponent
+          },
+          {
+            path:'new-admin',
+            component:NewAdminComponent
           },
           {
             path:'**',
