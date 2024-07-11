@@ -71,4 +71,7 @@ export class AdminService {
   deleteAdmin(id:string){
     return this.http.delete<ResponseBack>('http://localhost:3000/acounts/delete-admin/'+id)
   }
+  addNewAdmin(data:any){
+    return this.http.post<ResponseBack>('http://localhost:3000/acounts/create-admin', data)
+  }
 }
