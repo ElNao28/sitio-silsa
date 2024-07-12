@@ -17,7 +17,7 @@
   <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md items-center" *ngFor="let item of dataNoticias">
     <div class="flex w-full justify-between">
       <div class="flex gap-3">
-        <img src="../../../../assets/img/logoSil.png" alt="" class="w-32">
+        <img [src]="item.img" alt="" class="w-32">
         <ul class="flex flex-col gap-3">
           <li class="text-xl font-bold">{{item.titulo}}</li>
           <li><strong>Fecha:</strong> {{item.fecha}}</li>
