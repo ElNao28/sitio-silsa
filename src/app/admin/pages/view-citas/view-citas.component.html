@@ -8,12 +8,11 @@
       </select>
     </div>
     <div class="flex items-center gap-3">
-      <button class="py-2 px-3 bg-green-600 text-white rounded-md hover:bg-green-400 flex items-center gap-2">
+      <button (click)="exportExcel()" class="py-2 px-3 bg-green-600 text-white rounded-md hover:bg-green-400 flex items-center gap-2">
         <li class="pi pi-book"></li>Descargar registro
       </button>
     </div>
   </div>
-
 
 
   <div class="flex gap-3 bg-white px-5 py-4 rounded-md cita cursor-pointer shadow-md" *ngFor="let item of dataCitas.horarios">
